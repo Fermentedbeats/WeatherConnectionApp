@@ -19,18 +19,21 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+# require 'data_mapper'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
 
-# configure do
+configure do
 
-#   set :root, APP_ROOT.to_path
-#   enable :sessions
-#   set :session_secret, ENV['SESSION_SECRET'] || "dunno"
-# end
+  set :root, APP_ROOT.to_path
+  enable :sessions
+  set :session_secret, ENV['SESSION_SECRET'] || "dunno"
+
+  set :views, File.join(Sinatra::Application.root, "app", "views")
+end
 
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }

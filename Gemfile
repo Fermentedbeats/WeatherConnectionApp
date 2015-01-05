@@ -15,8 +15,18 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
+
+# heroku needs this one?
 gem 'foreman'
+
+# god-willing we will scrape an api
 gem 'httparty'
+
+#auth
+gem 'bcrypt-ruby'
+
+# Need this for to_json in routes?
+# gem 'data_mapper'
 
 group :test do
   gem 'faker'
