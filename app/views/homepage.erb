@@ -3,18 +3,18 @@
 <!-- API = API.get_api_data -->
 
 <div class="container">
-  <header><p><%= @user.email %></p></header>
+  <header><p><%= @user[:email] %></p></header>
   <div><h2><%= @user %></h2>
     <div id="get_api_data"><a href='#'>Load your Fitness Data</a></div><br>
   <table class="weekdays">
     <tr>
-      <td class="day1"><img src='../../public/css/imgs/SUN.png'></td>
-      <td class="day2"><img src='../../public/css/imgs/SUN.png'></td>
-      <td class="day3"><img src='../../public/css/imgs/SUN.png'></td>
-      <td class="day4"><img src='../../public/css/imgs/SUN.png'></td>
-      <td class="day5"><img src='../../public/css/imgs/SUN.png'></td>
-      <td class="day6"><img src='../../public/css/imgs/SUN.png'></td>
-      <td class="day7"><img src='../../public/css/imgs/SUN.png'></td>
+      <td class="day1"><img src='/public/css/imgs/sun.png'></td>
+      <td class="day2"><img src='/public/css/imgs/SUN.png'></td>
+      <td class="day3"><img src='/public/css/imgs/SUN.png'></td>
+      <td class="day4"><img src='/public/css/imgs/SUN.png'></td>
+      <td class="day5"><img src='/public/css/imgs/SUN.png'></td>
+      <td class="day6"><img src='/public/css/imgs/SUN.png'></td>
+      <td class="day7"><img src='/public/css/imgs/SUN.png'></td>
     </tr>
     <tr>
       <td class="day1"><%= @today %></td>

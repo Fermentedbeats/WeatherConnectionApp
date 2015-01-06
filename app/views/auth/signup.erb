@@ -1,13 +1,25 @@
-<form action="/signup" method="POST">
-<% if params[:error] %>
-<p>Error:<%= params[:error] %></p>
-<%end%>
+<div class="container">
+  <div>Your Weather Connection</div>
 
-  Email: <br>
-<input type="text" name="params[email]" value="<%= params[:email] %>">
+<form action="/signup" method="POST">
+
+  <% if params[:error] %>
+  <p>Error:<%= params[:error] %></p>
+  <%end%>
+
+  <br>Email: <br>
+  <input type="text" name="params[email]" value="<%= params[:email] %>">
   <br>Password: <br>
-<input type="password" name="params[password]">
-<br><br>Confirm Password: <br>
-<input type="password" name="params[password_confirmation]">
-<input type="submit">
+  <input type="password" name="params[password]">
+  <br>Confirm Password: <br>
+  <input type="password" name="params[password_confirmation]">
+  <br>Enter Your City</br>
+  <input type="text" name="params[city]">
+  <br>Enter Your State Abbreviation</br>
+  <input type="text" name="params[state]">
+  <br>
+  <input type="submit">
 </form>
+
+
+</div>

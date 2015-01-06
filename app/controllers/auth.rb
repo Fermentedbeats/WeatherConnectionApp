@@ -1,12 +1,12 @@
 get '/' do
-  erb :welcome
+  erb :"auth/login"
 end
 
 get '/login' do
-  erb: 'auth/login'
+  erb :"auth/login"
 end
 
-post '.login' do
+post '/login' do
   user = User.find_by(name: params[:email]).try(:authenticate, params[:password])
   if user
     session[:user_id] = user.user_id
@@ -14,12 +14,24 @@ post '.login' do
   else
     redirect to('/login?error=Email or Password Incorrect')
   end
-
-
 end
 
 get '/signup' do
- erb: 'auth/signup'
+ erb :'auth/signup'
+end
+
+
+post '/signup' do
+  user = User.new(params[:user])
+   params.inspect
+  if user.save
+    #sign in and redirect
+    session[:user_id] = user.id
+    redirect '/homepage'
+  else
+    #try again
+    redirect to('/signup?error=passwords do not match&email="params[:user][:email]"')
+  end
 end
 
 get '/logout' do
@@ -27,14 +39,3 @@ get '/logout' do
   redirect to('/')
 end
 
-post '/signup' do
-  user = User.new(params[:user])
-  if user.save
-    #sign in and redirect
-    session[:user_id] = user.user_id
-    redirect to('/homepage')
-  else
-    #try again
-    redirect to('/signup?error=passwords do not match&email='params[:user][:email]'')
-  end
-end
